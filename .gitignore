@@ -48,4 +48,4 @@ app.*.map.json
 
 
 # keypath
-lib/infrastructure/keys.dart
+lib/infrastructure/key.dart
