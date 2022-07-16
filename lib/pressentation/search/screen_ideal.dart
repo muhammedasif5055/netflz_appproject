@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflz_appproject/application/search/search_bloc.dart';
 import 'package:netflz_appproject/core/colors/colors.dart';
 import 'package:netflz_appproject/core/colors/constance.dart';
 
 import 'widget/search_titlewiget.dart';
-
-final imageurl =
-    "https://www.themoviedb.org/t/p/w250_and_h141_face/aEGiJJP91HsKVTEPy1HhmN0wRLm.jpg";
 
 class ScreenIdealWigets extends StatelessWidget {
   const ScreenIdealWigets({Key? key}) : super(key: key);
@@ -19,21 +18,47 @@ class ScreenIdealWigets extends StatelessWidget {
         Searchtitlewidget(title: 'Top Searches'),
         khight,
         Expanded(
-          child: ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (ctx, index) => const TopsearchItemtitle(),
-              separatorBuilder: (ctx, index) => khight20,
-              itemCount: 10),
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.isLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state.isError) {
+                return const Center(
+                  child: Text("Error While geting data"),
+                );
+              } else if (state.idleList.isEmpty) {
+                return const Center(
+                  child: Text("List Is Empty"),
+                );
+              }
+              return ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (ctx, index) {
+                    final movie = state.idleList[index];
+                    return TopsearchItemtitle(
+                        title: movie.title ?? 'No Title',
+                        imageurl: '$imageAppendUrl${movie.posterPath}');
+                  },
+                  separatorBuilder: (ctx, index) => khight20,
+                  itemCount: state.idleList.length);
+            },
+          ),
         )
       ],
     );
   }
 }
 
-
-
 class TopsearchItemtitle extends StatelessWidget {
-  const TopsearchItemtitle({Key? key}) : super(key: key);
+  final String title;
+  final String imageurl;
+  const TopsearchItemtitle({
+    Key? key,
+    required this.title,
+    required this.imageurl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,26 +76,27 @@ class TopsearchItemtitle extends StatelessWidget {
               )),
         ),
         kwidth,
-       const Expanded(
+        Expanded(
             child: Text(
-          'Movie Name',
-          style: TextStyle(
+          title,
+          style: const TextStyle(
             color: kwhitecolor,
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
-        )
-        ),
-
-       const CircleAvatar(
+        )),
+        const CircleAvatar(
           backgroundColor: kwhitecolor,
           radius: 25,
-          child: CircleAvatar(backgroundColor: backgroundColor,
-          radius: 23,
-          child: Icon(CupertinoIcons.play_fill,color: kwhitecolor,),),
+          child: CircleAvatar(
+            backgroundColor: backgroundColor,
+            radius: 23,
+            child: Icon(
+              CupertinoIcons.play_fill,
+              color: kwhitecolor,
+            ),
+          ),
         )
-
-     
       ],
     );
   }

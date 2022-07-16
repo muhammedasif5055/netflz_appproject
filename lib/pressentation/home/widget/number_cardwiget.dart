@@ -32,12 +32,17 @@ class NumberCardWiget extends StatelessWidget {
             left: 10,
             bottom: -25,
             child: BorderedText(
-              strokeWidth: 5.0,
-              strokeColor: Colors.white,
+                strokeWidth: 5.0,
+                strokeColor: Colors.white,
                 child: Text(
-              "$index",
-              style: TextStyle(fontSize: 140,fontWeight: FontWeight.bold,color: Colors.black,decoration: TextDecoration.none,decorationColor: Colors.white),
-            )),
+                  "$index",
+                  style: TextStyle(
+                      fontSize: 140,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      decoration: TextDecoration.none,
+                      decorationColor: Colors.white),
+                )),
           )
         ],
       ),

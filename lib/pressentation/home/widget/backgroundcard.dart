@@ -9,39 +9,44 @@ class Backgroundcardwiger extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Stack(
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 600,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                  "https://www.themoviedb.org/t/p/original/k340hGNTfE0DYlDqXRJfMyXJtDx.jpg"),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          left: 0,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 600,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          "https://www.themoviedb.org/t/p/original/k340hGNTfE0DYlDqXRJfMyXJtDx.jpg"),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Addinfowigets(icon: Icons.add,size: 30,fontSize: 15, title: 'My List'),
-                        _playbutton(),
-                        Addinfowigets(icon: Icons.info_outline,size: 30,fontSize: 15, title: "info")
-                      ],
-                    ),
-                  ),
-                )
+                Addinfowigets(
+                    icon: Icons.add, size: 30, fontSize: 15, title: 'My List'),
+                _playbutton(),
+                Addinfowigets(
+                    icon: Icons.info_outline,
+                    size: 30,
+                    fontSize: 15,
+                    title: "info")
               ],
-            );
+            ),
+          ),
+        )
+      ],
+    );
   }
 
-    TextButton _playbutton() {
+  TextButton _playbutton() {
     return TextButton.icon(
       onPressed: () {},
       style: ButtonStyle(

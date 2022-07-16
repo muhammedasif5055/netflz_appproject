@@ -13,21 +13,19 @@ class NumberWigectcard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
-      crossAxisAlignment:CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        MaintitleWiget(title:"Top 10 Tv Shows India Today" ),
-        LimitedBox(
-          maxHeight: 200,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: List.generate(10, (index) =>  NumberCardWiget(index: index+1)),
-          ),
-        )
-
-
-       
-      ],),
+          MaintitleWiget(title: "Top 10 Tv Shows India Today"),
+          LimitedBox(
+            maxHeight: 200,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: List.generate(
+                  10, (index) => NumberCardWiget(index: index + 1)),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
-

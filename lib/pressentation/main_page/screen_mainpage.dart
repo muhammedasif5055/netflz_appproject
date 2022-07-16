@@ -8,8 +8,8 @@ import 'package:netflz_appproject/pressentation/new_hot/new_hot.dart';
 import 'package:netflz_appproject/pressentation/search/search.dart';
 
 class ScreenMainPage extends StatelessWidget {
-   ScreenMainPage({Key? key}) : super(key: key);
-  final _pages =[
+  ScreenMainPage({Key? key}) : super(key: key);
+  final _pages = [
     ScreenHomePage(),
     ScreenNewHot(),
     ScreenFastLafe(),
@@ -18,13 +18,16 @@ class ScreenMainPage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: ValueListenableBuilder(valueListenable: indexChengeNotifire, builder: (context,dynamic index,_){
-          return _pages[index];
-        },),
+        child: ValueListenableBuilder(
+          valueListenable: indexChengeNotifire,
+          builder: (context, dynamic index, _) {
+            return _pages[index];
+          },
+        ),
       ),
-        bottomNavigationBar: ScreenNavigationBar(),
+      bottomNavigationBar: ScreenNavigationBar(),
     );
   }
 }

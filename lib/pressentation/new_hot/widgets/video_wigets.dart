@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../core/colors/colors.dart';
 
 class VideoWigets extends StatelessWidget {
-  const VideoWigets({
-    Key? key,
-    required this.bimage
-  }) : super(key: key);
+  const VideoWigets({Key? key, required this.bimage}) : super(key: key);
   final String bimage;
   @override
   Widget build(BuildContext context) {

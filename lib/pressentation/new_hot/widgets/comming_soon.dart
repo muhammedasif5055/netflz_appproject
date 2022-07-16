@@ -7,12 +7,22 @@ import '../../../core/colors/constance.dart';
 import '../../home/widget/addinfo_btnwiget.dart';
 
 class ComingsoonWiget extends StatelessWidget {
-  
+  final String id;
+  final String month;
+  final String day;
+  final String posterpath;
+  final String movieName;
+  final String description;
+
   const ComingsoonWiget({
     Key? key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterpath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -25,61 +35,73 @@ class ComingsoonWiget extends StatelessWidget {
           height: 450,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
+            mainAxisSize: MainAxisSize.min,
+            children: [
               Text(
-                "FEB",
-                style: TextStyle(
-                    fontSize: 16, color: Color.fromARGB(255, 100, 99, 99)),
+                month,
+                style: const TextStyle(
+                    fontSize: 15, color: Color.fromARGB(255, 100, 99, 99)),
               ),
               Text(
-                "11",
-                style: TextStyle(
-                  letterSpacing: 10,
-                  fontSize: 30,
+                day,
+                style: const TextStyle(
+                  letterSpacing: 5,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               )
             ],
           ),
         ),
-        
         SizedBox(
-        
           width: size.width - 50,
           height: 450,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-            VideoWigets(bimage: "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/u8XdZoM8SLjO9sO9uGQf6XF5rrl.jpg"),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            VideoWigets(bimage: posterpath),
             khight,
             Row(
               children: [
-               const Text(
-                  "Ela Veezha Poonchira",
-                  style:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Expanded(
+                  child: Text(
+                    movieName,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
-             const   Spacer(),
-              Row(
-                children: const[
-                  Addinfowigets(icon: CupertinoIcons.bell, title: "Remind Me",size: 20,fontSize: 10),
-                  kwidth,
-                  Addinfowigets(icon: Icons.info_outline_rounded, title: "Info",size: 20,fontSize: 10),
-                  kwidth, 
-                ],
-              ),
-              
+                const Spacer(),
+                Row(
+                  children: const [
+                    Addinfowigets(
+                        icon: CupertinoIcons.bell,
+                        title: "Remind Me",
+                        size: 20,
+                        fontSize: 10),
+                    kwidth,
+                    Addinfowigets(
+                        icon: Icons.info_outline_rounded,
+                        title: "Info",
+                        size: 20,
+                        fontSize: 10),
+                    kwidth,
+                  ],
+                ),
               ],
             ),
-            Text("Coming on Friday"),
+            Text("Coming on $day $month"),
             khight20,
-            Text("Ela Veezha Poonchira",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+            Text(
+              movieName,
+              style: TextStyle(fontSize: 14,
+              letterSpacing: -2,
+               fontWeight: FontWeight.bold),
+            ),
             khight,
-            Text("Follows two police officers at a small wireless police station on the hilltop as they work to resolve the mystery about a woman's body parts that have been scattered all over Elaveezhapoonchira.",style: TextStyle(color: Colors.grey))
+            Text(description,
+            maxLines: 4,
+             style: TextStyle(color: Colors.grey),)
           ]),
         )
       ],
     );
   }
 }
-

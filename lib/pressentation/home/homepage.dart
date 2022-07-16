@@ -51,7 +51,7 @@ class ScreenHomePage extends StatelessWidget {
                 ),
                 scrollNotifier.value == true
                     ? AnimatedContainer(
-                      duration: const Duration(microseconds: 1000),
+                        duration: const Duration(microseconds: 1000),
                         width: double.infinity,
                         height: 90,
                         color: Colors.black.withOpacity(0.3),
@@ -63,7 +63,7 @@ class ScreenHomePage extends StatelessWidget {
                                 width: 50,
                                 height: 50,
                               ),
-                             const Spacer(),
+                              const Spacer(),
                               const Icon(
                                 Icons.cast,
                                 color: Colors.white,
@@ -78,14 +78,21 @@ class ScreenHomePage extends StatelessWidget {
                               kwidth,
                             ],
                           ),
-                           khight,
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("Tv Shows" ,style:kHometitle ,),
-                            Text("Movies",style: kHometitle,),
-                            Text("Categoriese",style: kHometitle),
-                          ],)
-                          
+                          khight,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                "Tv Shows",
+                                style: kHometitle,
+                              ),
+                              Text(
+                                "Movies",
+                                style: kHometitle,
+                              ),
+                              Text("Categoriese", style: kHometitle),
+                            ],
+                          )
                         ]),
                       )
                     : khight,

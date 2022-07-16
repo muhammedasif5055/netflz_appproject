@@ -1,1 +1,1 @@
-const baseUrl ="https://developers.themoviedb.org/3";
+const baseUrl = "https://api.themoviedb.org/3";

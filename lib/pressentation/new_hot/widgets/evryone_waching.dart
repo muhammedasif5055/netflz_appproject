@@ -6,8 +6,14 @@ import '../../home/widget/addinfo_btnwiget.dart';
 import 'video_wigets.dart';
 
 class EveryoneWachingwig extends StatelessWidget {
+  final String posterpath;
+  final String movieName;
+  final String description;
   const EveryoneWachingwig({
     Key? key,
+    required this.posterpath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override

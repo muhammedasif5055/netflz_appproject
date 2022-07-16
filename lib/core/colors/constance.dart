@@ -1,12 +1,20 @@
 import 'package:flutter/cupertino.dart';
 
-const kwidth = SizedBox(width: 10,);
-const khight = SizedBox(height: 10,);
-const khight20 = SizedBox(height: 20,);
+const kwidth = SizedBox(
+  width: 10,
+);
+const khight = SizedBox(
+  height: 10,
+);
+const khight20 = SizedBox(
+  height: 20,
+);
 
 // textstyle
 
 TextStyle kHometitle = TextStyle(
-  fontSize:14,
+  fontSize: 14,
   fontWeight: FontWeight.bold,
 );
+
+const imageAppendUrl = 'https://image.tmdb.org/t/p/w500';

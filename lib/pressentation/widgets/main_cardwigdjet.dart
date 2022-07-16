@@ -13,10 +13,11 @@ class MainCardWiget extends StatelessWidget {
         width: 150,
         height: 250,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage("https://www.themoviedb.org/t/p/original/ubQeUNRlc8o3nsvB1JvCwICAMFY.jpg"))),
+            borderRadius: BorderRadius.circular(6),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    "https://www.themoviedb.org/t/p/original/ubQeUNRlc8o3nsvB1JvCwICAMFY.jpg"))),
       ),
     );
   }
