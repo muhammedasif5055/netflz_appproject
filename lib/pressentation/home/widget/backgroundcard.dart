@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflz_appproject/pressentation/widgets/main_cardwigdjet.dart';
 
 import '../../../core/colors/colors.dart';
 import 'addinfo_btnwiget.dart';
 
 class Backgroundcardwiger extends StatelessWidget {
-  const Backgroundcardwiger({Key? key}) : super(key: key);
+   final String imagUrl;
+  const Backgroundcardwiger({Key? key, required this.imagUrl, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +16,9 @@ class Backgroundcardwiger extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 600,
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(
-                  "https://www.themoviedb.org/t/p/original/k340hGNTfE0DYlDqXRJfMyXJtDx.jpg"),
+              image: NetworkImage(imagUrl),
             ),
           ),
         ),

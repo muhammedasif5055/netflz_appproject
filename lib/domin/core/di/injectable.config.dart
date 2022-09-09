@@ -9,8 +9,9 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../../../application/downloads/downloads_bloc.dart' as _i9;
 import '../../../application/fastlafe/fast_lafe_bloc.dart' as _i10;
-import '../../../application/hotandnew/hot_and_new_bloc.dart' as _i11;
-import '../../../application/search/search_bloc.dart' as _i12;
+import '../../../application/home/home_bloc.dart' as _i11;
+import '../../../application/hotandnew/hot_and_new_bloc.dart' as _i12;
+import '../../../application/search/search_bloc.dart' as _i13;
 import '../../../infrastructure/downlods/downloads_repostry.dart' as _i6;
 import '../../../infrastructure/hotandnew/hotandnewimpl.dart' as _i4;
 import '../../../infrastructure/search/search_repo.dart' as _i8;
@@ -31,9 +32,10 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i9.DownloadsBloc(get<_i5.IDownloadsRepo>()));
   gh.factory<_i10.FastLafeBloc>(
       () => _i10.FastLafeBloc(get<_i5.IDownloadsRepo>()));
-  gh.factory<_i11.HotAndNewBloc>(
-      () => _i11.HotAndNewBloc(get<_i3.HotAndNewServises>()));
-  gh.factory<_i12.SearchBloc>(() =>
-      _i12.SearchBloc(get<_i5.IDownloadsRepo>(), get<_i7.SearchService>()));
+  gh.factory<_i11.HomeBloc>(() => _i11.HomeBloc(get<_i3.HotAndNewServises>()));
+  gh.factory<_i12.HotAndNewBloc>(
+      () => _i12.HotAndNewBloc(get<_i3.HotAndNewServises>()));
+  gh.factory<_i13.SearchBloc>(() =>
+      _i13.SearchBloc(get<_i5.IDownloadsRepo>(), get<_i7.SearchService>()));
   return get;
 }

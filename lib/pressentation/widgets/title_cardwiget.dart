@@ -4,8 +4,9 @@ import 'main_cardwigdjet.dart';
 import 'main_title.dart';
 
 class Titlecard_wiget extends StatelessWidget {
-  const Titlecard_wiget({Key? key, required this.title}) : super(key: key);
+  const Titlecard_wiget({Key? key, required this.title, required this.posterList}) : super(key: key);
   final String title;
+  final List<String>posterList;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +19,11 @@ class Titlecard_wiget extends StatelessWidget {
             maxHeight: 200,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: List.generate(10, (index) => const MainCardWiget()),
+              children: List.generate( 
+                posterList.length,
+                 (index) {
+                  return MainCardWiget(imageUrl: posterList[index],);
+                 }  ),
             ),
           )
         ],

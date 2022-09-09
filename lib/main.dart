@@ -5,8 +5,8 @@ import 'package:netflz_appproject/application/downloads/downloads_bloc.dart';
 import 'package:netflz_appproject/core/colors/colors.dart';
 import 'package:netflz_appproject/domin/core/di/injectable.dart';
 import 'package:netflz_appproject/pressentation/main_page/screen_mainpage.dart';
-
 import 'application/fastlafe/fast_lafe_bloc.dart';
+import 'application/home/home_bloc.dart';
 import 'application/hotandnew/hot_and_new_bloc.dart';
 import 'application/search/search_bloc.dart';
 
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (ctx) => getIt<SearchBloc>()),
         BlocProvider(create: (ctx) => getIt<FastLafeBloc>()),
         BlocProvider(create: (ctx) => getIt<HotAndNewBloc>()),
+        BlocProvider(create: (ctx) => getIt<HomeBloc>())
 
       ],
       child: MaterialApp(

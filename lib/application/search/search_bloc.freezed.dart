@@ -12,7 +12,25 @@ part of 'search_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$SearchEventTearOff {
+  const _$SearchEventTearOff();
+
+  Initialize initialize() {
+    return const Initialize();
+  }
+
+  SearchMovie searchMovie({required String movieQuery}) {
+    return SearchMovie(
+      movieQuery: movieQuery,
+    );
+  }
+}
+
+/// @nodoc
+const $SearchEvent = _$SearchEventTearOff();
 
 /// @nodoc
 mixin _$SearchEvent {
@@ -73,21 +91,20 @@ class _$SearchEventCopyWithImpl<$Res> implements $SearchEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$InitializeCopyWith<$Res> {
-  factory _$$InitializeCopyWith(
-          _$Initialize value, $Res Function(_$Initialize) then) =
-      __$$InitializeCopyWithImpl<$Res>;
+abstract class $InitializeCopyWith<$Res> {
+  factory $InitializeCopyWith(
+          Initialize value, $Res Function(Initialize) then) =
+      _$InitializeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitializeCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
-    implements _$$InitializeCopyWith<$Res> {
-  __$$InitializeCopyWithImpl(
-      _$Initialize _value, $Res Function(_$Initialize) _then)
-      : super(_value, (v) => _then(v as _$Initialize));
+class _$InitializeCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
+    implements $InitializeCopyWith<$Res> {
+  _$InitializeCopyWithImpl(Initialize _value, $Res Function(Initialize) _then)
+      : super(_value, (v) => _then(v as Initialize));
 
   @override
-  _$Initialize get _value => super._value as _$Initialize;
+  Initialize get _value => super._value as Initialize;
 }
 
 /// @nodoc
@@ -103,7 +120,7 @@ class _$Initialize implements Initialize {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initialize);
+        (other.runtimeType == runtimeType && other is Initialize);
   }
 
   @override
@@ -177,28 +194,28 @@ abstract class Initialize implements SearchEvent {
 }
 
 /// @nodoc
-abstract class _$$SearchMovieCopyWith<$Res> {
-  factory _$$SearchMovieCopyWith(
-          _$SearchMovie value, $Res Function(_$SearchMovie) then) =
-      __$$SearchMovieCopyWithImpl<$Res>;
+abstract class $SearchMovieCopyWith<$Res> {
+  factory $SearchMovieCopyWith(
+          SearchMovie value, $Res Function(SearchMovie) then) =
+      _$SearchMovieCopyWithImpl<$Res>;
   $Res call({String movieQuery});
 }
 
 /// @nodoc
-class __$$SearchMovieCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
-    implements _$$SearchMovieCopyWith<$Res> {
-  __$$SearchMovieCopyWithImpl(
-      _$SearchMovie _value, $Res Function(_$SearchMovie) _then)
-      : super(_value, (v) => _then(v as _$SearchMovie));
+class _$SearchMovieCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
+    implements $SearchMovieCopyWith<$Res> {
+  _$SearchMovieCopyWithImpl(
+      SearchMovie _value, $Res Function(SearchMovie) _then)
+      : super(_value, (v) => _then(v as SearchMovie));
 
   @override
-  _$SearchMovie get _value => super._value as _$SearchMovie;
+  SearchMovie get _value => super._value as SearchMovie;
 
   @override
   $Res call({
     Object? movieQuery = freezed,
   }) {
-    return _then(_$SearchMovie(
+    return _then(SearchMovie(
       movieQuery: movieQuery == freezed
           ? _value.movieQuery
           : movieQuery // ignore: cast_nullable_to_non_nullable
@@ -224,7 +241,7 @@ class _$SearchMovie implements SearchMovie {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchMovie &&
+            other is SearchMovie &&
             const DeepCollectionEquality()
                 .equals(other.movieQuery, movieQuery));
   }
@@ -235,8 +252,8 @@ class _$SearchMovie implements SearchMovie {
 
   @JsonKey(ignore: true)
   @override
-  _$$SearchMovieCopyWith<_$SearchMovie> get copyWith =>
-      __$$SearchMovieCopyWithImpl<_$SearchMovie>(this, _$identity);
+  $SearchMovieCopyWith<SearchMovie> get copyWith =>
+      _$SearchMovieCopyWithImpl<SearchMovie>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -302,13 +319,34 @@ class _$SearchMovie implements SearchMovie {
 }
 
 abstract class SearchMovie implements SearchEvent {
-  const factory SearchMovie({required final String movieQuery}) = _$SearchMovie;
+  const factory SearchMovie({required String movieQuery}) = _$SearchMovie;
 
   String get movieQuery;
   @JsonKey(ignore: true)
-  _$$SearchMovieCopyWith<_$SearchMovie> get copyWith =>
+  $SearchMovieCopyWith<SearchMovie> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$SearchStateTearOff {
+  const _$SearchStateTearOff();
+
+  _searchState call(
+      {required List<Searchresultdata> serachResultList,
+      required List<Downloads> idleList,
+      required bool isLoading,
+      required bool isError}) {
+    return _searchState(
+      serachResultList: serachResultList,
+      idleList: idleList,
+      isLoading: isLoading,
+      isError: isError,
+    );
+  }
+}
+
+/// @nodoc
+const $SearchState = _$SearchStateTearOff();
 
 /// @nodoc
 mixin _$SearchState {
@@ -372,11 +410,11 @@ class _$SearchStateCopyWithImpl<$Res> implements $SearchStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_searchStateCopyWith<$Res>
+abstract class _$searchStateCopyWith<$Res>
     implements $SearchStateCopyWith<$Res> {
-  factory _$$_searchStateCopyWith(
-          _$_searchState value, $Res Function(_$_searchState) then) =
-      __$$_searchStateCopyWithImpl<$Res>;
+  factory _$searchStateCopyWith(
+          _searchState value, $Res Function(_searchState) then) =
+      __$searchStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<Searchresultdata> serachResultList,
@@ -386,14 +424,14 @@ abstract class _$$_searchStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_searchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
-    implements _$$_searchStateCopyWith<$Res> {
-  __$$_searchStateCopyWithImpl(
-      _$_searchState _value, $Res Function(_$_searchState) _then)
-      : super(_value, (v) => _then(v as _$_searchState));
+class __$searchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
+    implements _$searchStateCopyWith<$Res> {
+  __$searchStateCopyWithImpl(
+      _searchState _value, $Res Function(_searchState) _then)
+      : super(_value, (v) => _then(v as _searchState));
 
   @override
-  _$_searchState get _value => super._value as _$_searchState;
+  _searchState get _value => super._value as _searchState;
 
   @override
   $Res call({
@@ -402,13 +440,13 @@ class __$$_searchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? isError = freezed,
   }) {
-    return _then(_$_searchState(
+    return _then(_searchState(
       serachResultList: serachResultList == freezed
-          ? _value._serachResultList
+          ? _value.serachResultList
           : serachResultList // ignore: cast_nullable_to_non_nullable
               as List<Searchresultdata>,
       idleList: idleList == freezed
-          ? _value._idleList
+          ? _value.idleList
           : idleList // ignore: cast_nullable_to_non_nullable
               as List<Downloads>,
       isLoading: isLoading == freezed
@@ -427,27 +465,15 @@ class __$$_searchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
 
 class _$_searchState implements _searchState {
   const _$_searchState(
-      {required final List<Searchresultdata> serachResultList,
-      required final List<Downloads> idleList,
+      {required this.serachResultList,
+      required this.idleList,
       required this.isLoading,
-      required this.isError})
-      : _serachResultList = serachResultList,
-        _idleList = idleList;
+      required this.isError});
 
-  final List<Searchresultdata> _serachResultList;
   @override
-  List<Searchresultdata> get serachResultList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_serachResultList);
-  }
-
-  final List<Downloads> _idleList;
+  final List<Searchresultdata> serachResultList;
   @override
-  List<Downloads> get idleList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_idleList);
-  }
-
+  final List<Downloads> idleList;
   @override
   final bool isLoading;
   @override
@@ -462,10 +488,10 @@ class _$_searchState implements _searchState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_searchState &&
+            other is _searchState &&
             const DeepCollectionEquality()
-                .equals(other._serachResultList, _serachResultList) &&
-            const DeepCollectionEquality().equals(other._idleList, _idleList) &&
+                .equals(other.serachResultList, serachResultList) &&
+            const DeepCollectionEquality().equals(other.idleList, idleList) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.isError, isError));
   }
@@ -473,23 +499,23 @@ class _$_searchState implements _searchState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_serachResultList),
-      const DeepCollectionEquality().hash(_idleList),
+      const DeepCollectionEquality().hash(serachResultList),
+      const DeepCollectionEquality().hash(idleList),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isError));
 
   @JsonKey(ignore: true)
   @override
-  _$$_searchStateCopyWith<_$_searchState> get copyWith =>
-      __$$_searchStateCopyWithImpl<_$_searchState>(this, _$identity);
+  _$searchStateCopyWith<_searchState> get copyWith =>
+      __$searchStateCopyWithImpl<_searchState>(this, _$identity);
 }
 
 abstract class _searchState implements SearchState {
   const factory _searchState(
-      {required final List<Searchresultdata> serachResultList,
-      required final List<Downloads> idleList,
-      required final bool isLoading,
-      required final bool isError}) = _$_searchState;
+      {required List<Searchresultdata> serachResultList,
+      required List<Downloads> idleList,
+      required bool isLoading,
+      required bool isError}) = _$_searchState;
 
   @override
   List<Searchresultdata> get serachResultList;
@@ -501,6 +527,6 @@ abstract class _searchState implements SearchState {
   bool get isError;
   @override
   @JsonKey(ignore: true)
-  _$$_searchStateCopyWith<_$_searchState> get copyWith =>
+  _$searchStateCopyWith<_searchState> get copyWith =>
       throw _privateConstructorUsedError;
 }

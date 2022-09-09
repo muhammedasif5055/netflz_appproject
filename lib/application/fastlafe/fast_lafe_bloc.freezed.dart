@@ -12,7 +12,31 @@ part of 'fast_lafe_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$FastLafeEventTearOff {
+  const _$FastLafeEventTearOff();
+
+  Initialize initialize() {
+    return const Initialize();
+  }
+
+  Likevideo likevideo({required int id}) {
+    return Likevideo(
+      id: id,
+    );
+  }
+
+  Unlikevideo unlikevideo({required int id}) {
+    return Unlikevideo(
+      id: id,
+    );
+  }
+}
+
+/// @nodoc
+const $FastLafeEvent = _$FastLafeEventTearOff();
 
 /// @nodoc
 mixin _$FastLafeEvent {
@@ -80,21 +104,20 @@ class _$FastLafeEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$InitializeCopyWith<$Res> {
-  factory _$$InitializeCopyWith(
-          _$Initialize value, $Res Function(_$Initialize) then) =
-      __$$InitializeCopyWithImpl<$Res>;
+abstract class $InitializeCopyWith<$Res> {
+  factory $InitializeCopyWith(
+          Initialize value, $Res Function(Initialize) then) =
+      _$InitializeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitializeCopyWithImpl<$Res> extends _$FastLafeEventCopyWithImpl<$Res>
-    implements _$$InitializeCopyWith<$Res> {
-  __$$InitializeCopyWithImpl(
-      _$Initialize _value, $Res Function(_$Initialize) _then)
-      : super(_value, (v) => _then(v as _$Initialize));
+class _$InitializeCopyWithImpl<$Res> extends _$FastLafeEventCopyWithImpl<$Res>
+    implements $InitializeCopyWith<$Res> {
+  _$InitializeCopyWithImpl(Initialize _value, $Res Function(Initialize) _then)
+      : super(_value, (v) => _then(v as Initialize));
 
   @override
-  _$Initialize get _value => super._value as _$Initialize;
+  Initialize get _value => super._value as Initialize;
 }
 
 /// @nodoc
@@ -110,7 +133,7 @@ class _$Initialize implements Initialize {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initialize);
+        (other.runtimeType == runtimeType && other is Initialize);
   }
 
   @override
@@ -190,28 +213,26 @@ abstract class Initialize implements FastLafeEvent {
 }
 
 /// @nodoc
-abstract class _$$LikevideoCopyWith<$Res> {
-  factory _$$LikevideoCopyWith(
-          _$Likevideo value, $Res Function(_$Likevideo) then) =
-      __$$LikevideoCopyWithImpl<$Res>;
+abstract class $LikevideoCopyWith<$Res> {
+  factory $LikevideoCopyWith(Likevideo value, $Res Function(Likevideo) then) =
+      _$LikevideoCopyWithImpl<$Res>;
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$LikevideoCopyWithImpl<$Res> extends _$FastLafeEventCopyWithImpl<$Res>
-    implements _$$LikevideoCopyWith<$Res> {
-  __$$LikevideoCopyWithImpl(
-      _$Likevideo _value, $Res Function(_$Likevideo) _then)
-      : super(_value, (v) => _then(v as _$Likevideo));
+class _$LikevideoCopyWithImpl<$Res> extends _$FastLafeEventCopyWithImpl<$Res>
+    implements $LikevideoCopyWith<$Res> {
+  _$LikevideoCopyWithImpl(Likevideo _value, $Res Function(Likevideo) _then)
+      : super(_value, (v) => _then(v as Likevideo));
 
   @override
-  _$Likevideo get _value => super._value as _$Likevideo;
+  Likevideo get _value => super._value as Likevideo;
 
   @override
   $Res call({
     Object? id = freezed,
   }) {
-    return _then(_$Likevideo(
+    return _then(Likevideo(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -237,7 +258,7 @@ class _$Likevideo implements Likevideo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Likevideo &&
+            other is Likevideo &&
             const DeepCollectionEquality().equals(other.id, id));
   }
 
@@ -247,8 +268,8 @@ class _$Likevideo implements Likevideo {
 
   @JsonKey(ignore: true)
   @override
-  _$$LikevideoCopyWith<_$Likevideo> get copyWith =>
-      __$$LikevideoCopyWithImpl<_$Likevideo>(this, _$identity);
+  $LikevideoCopyWith<Likevideo> get copyWith =>
+      _$LikevideoCopyWithImpl<Likevideo>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -320,38 +341,37 @@ class _$Likevideo implements Likevideo {
 }
 
 abstract class Likevideo implements FastLafeEvent {
-  const factory Likevideo({required final int id}) = _$Likevideo;
+  const factory Likevideo({required int id}) = _$Likevideo;
 
   int get id;
   @JsonKey(ignore: true)
-  _$$LikevideoCopyWith<_$Likevideo> get copyWith =>
+  $LikevideoCopyWith<Likevideo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UnlikevideoCopyWith<$Res> {
-  factory _$$UnlikevideoCopyWith(
-          _$Unlikevideo value, $Res Function(_$Unlikevideo) then) =
-      __$$UnlikevideoCopyWithImpl<$Res>;
+abstract class $UnlikevideoCopyWith<$Res> {
+  factory $UnlikevideoCopyWith(
+          Unlikevideo value, $Res Function(Unlikevideo) then) =
+      _$UnlikevideoCopyWithImpl<$Res>;
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$UnlikevideoCopyWithImpl<$Res>
-    extends _$FastLafeEventCopyWithImpl<$Res>
-    implements _$$UnlikevideoCopyWith<$Res> {
-  __$$UnlikevideoCopyWithImpl(
-      _$Unlikevideo _value, $Res Function(_$Unlikevideo) _then)
-      : super(_value, (v) => _then(v as _$Unlikevideo));
+class _$UnlikevideoCopyWithImpl<$Res> extends _$FastLafeEventCopyWithImpl<$Res>
+    implements $UnlikevideoCopyWith<$Res> {
+  _$UnlikevideoCopyWithImpl(
+      Unlikevideo _value, $Res Function(Unlikevideo) _then)
+      : super(_value, (v) => _then(v as Unlikevideo));
 
   @override
-  _$Unlikevideo get _value => super._value as _$Unlikevideo;
+  Unlikevideo get _value => super._value as Unlikevideo;
 
   @override
   $Res call({
     Object? id = freezed,
   }) {
-    return _then(_$Unlikevideo(
+    return _then(Unlikevideo(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -377,7 +397,7 @@ class _$Unlikevideo implements Unlikevideo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Unlikevideo &&
+            other is Unlikevideo &&
             const DeepCollectionEquality().equals(other.id, id));
   }
 
@@ -387,8 +407,8 @@ class _$Unlikevideo implements Unlikevideo {
 
   @JsonKey(ignore: true)
   @override
-  _$$UnlikevideoCopyWith<_$Unlikevideo> get copyWith =>
-      __$$UnlikevideoCopyWithImpl<_$Unlikevideo>(this, _$identity);
+  $UnlikevideoCopyWith<Unlikevideo> get copyWith =>
+      _$UnlikevideoCopyWithImpl<Unlikevideo>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -460,13 +480,32 @@ class _$Unlikevideo implements Unlikevideo {
 }
 
 abstract class Unlikevideo implements FastLafeEvent {
-  const factory Unlikevideo({required final int id}) = _$Unlikevideo;
+  const factory Unlikevideo({required int id}) = _$Unlikevideo;
 
   int get id;
   @JsonKey(ignore: true)
-  _$$UnlikevideoCopyWith<_$Unlikevideo> get copyWith =>
+  $UnlikevideoCopyWith<Unlikevideo> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$FastLafeStateTearOff {
+  const _$FastLafeStateTearOff();
+
+  _Initial call(
+      {required List<Downloads> videosList,
+      required bool isLoading,
+      required bool isError}) {
+    return _Initial(
+      videosList: videosList,
+      isLoading: isLoading,
+      isError: isError,
+    );
+  }
+}
+
+/// @nodoc
+const $FastLafeState = _$FastLafeStateTearOff();
 
 /// @nodoc
 mixin _$FastLafeState {
@@ -520,23 +559,21 @@ class _$FastLafeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
-    implements $FastLafeStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$InitialCopyWith<$Res> implements $FastLafeStateCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
+      __$InitialCopyWithImpl<$Res>;
   @override
   $Res call({List<Downloads> videosList, bool isLoading, bool isError});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$FastLafeStateCopyWithImpl<$Res>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
+class __$InitialCopyWithImpl<$Res> extends _$FastLafeStateCopyWithImpl<$Res>
+    implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
+      : super(_value, (v) => _then(v as _Initial));
 
   @override
-  _$_Initial get _value => super._value as _$_Initial;
+  _Initial get _value => super._value as _Initial;
 
   @override
   $Res call({
@@ -544,9 +581,9 @@ class __$$_InitialCopyWithImpl<$Res> extends _$FastLafeStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? isError = freezed,
   }) {
-    return _then(_$_Initial(
+    return _then(_Initial(
       videosList: videosList == freezed
-          ? _value._videosList
+          ? _value.videosList
           : videosList // ignore: cast_nullable_to_non_nullable
               as List<Downloads>,
       isLoading: isLoading == freezed
@@ -565,18 +602,12 @@ class __$$_InitialCopyWithImpl<$Res> extends _$FastLafeStateCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {required final List<Downloads> videosList,
+      {required this.videosList,
       required this.isLoading,
-      required this.isError})
-      : _videosList = videosList;
+      required this.isError});
 
-  final List<Downloads> _videosList;
   @override
-  List<Downloads> get videosList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_videosList);
-  }
-
+  final List<Downloads> videosList;
   @override
   final bool isLoading;
   @override
@@ -591,9 +622,9 @@ class _$_Initial implements _Initial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _Initial &&
             const DeepCollectionEquality()
-                .equals(other._videosList, _videosList) &&
+                .equals(other.videosList, videosList) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.isError, isError));
   }
@@ -601,21 +632,21 @@ class _$_Initial implements _Initial {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_videosList),
+      const DeepCollectionEquality().hash(videosList),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isError));
 
   @JsonKey(ignore: true)
   @override
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$InitialCopyWith<_Initial> get copyWith =>
+      __$InitialCopyWithImpl<_Initial>(this, _$identity);
 }
 
 abstract class _Initial implements FastLafeState {
   const factory _Initial(
-      {required final List<Downloads> videosList,
-      required final bool isLoading,
-      required final bool isError}) = _$_Initial;
+      {required List<Downloads> videosList,
+      required bool isLoading,
+      required bool isError}) = _$_Initial;
 
   @override
   List<Downloads> get videosList;
@@ -625,6 +656,6 @@ abstract class _Initial implements FastLafeState {
   bool get isError;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$InitialCopyWith<_Initial> get copyWith =>
       throw _privateConstructorUsedError;
 }

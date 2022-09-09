@@ -60,8 +60,7 @@ class Section2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DownloadsBloc>(context)
-          .add(const DownloadsEvent.getDownloadimage());
+      BlocProvider.of<DownloadsBloc>(context).add(const DownloadsEvent.getDownloadimage());
     });
 
     final Size size = MediaQuery.of(context).size;
@@ -100,6 +99,7 @@ class Section2 extends StatelessWidget {
                           radius: size.width * 0.38,
                           backgroundColor: Colors.grey.withOpacity(0.5),
                         ),
+                         if (state.downloads.length >= 10)
                         DownlodsImageWidget(
                           imagelist:
                               '$imageAppendUrl${state.downloads[0].posterPath}',
@@ -110,6 +110,7 @@ class Section2 extends StatelessWidget {
                           margin: EdgeInsets.only(left: 150, bottom: 30),
                           angle: 20,
                         ),
+                        if (state.downloads.length >= 10)
                         DownlodsImageWidget(
                           imagelist:
                               '$imageAppendUrl${state.downloads[1].posterPath}',
@@ -120,6 +121,7 @@ class Section2 extends StatelessWidget {
                           margin: EdgeInsets.only(right: 150, bottom: 30),
                           angle: -20,
                         ),
+                        if (state.downloads.length >= 10)
                         DownlodsImageWidget(
                             imagelist:
                                 '$imageAppendUrl${state.downloads[2].posterPath}',

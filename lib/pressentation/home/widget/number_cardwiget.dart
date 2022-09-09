@@ -2,8 +2,13 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 
 class NumberCardWiget extends StatelessWidget {
-  const NumberCardWiget({Key? key, required this.index}) : super(key: key);
+  const NumberCardWiget({
+    Key? key,
+    required this.index, 
+    required this.imageUrl,
+  }) : super(key: key);
   final int index;
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,7 +29,7 @@ class NumberCardWiget extends StatelessWidget {
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            "https://www.themoviedb.org/t/p/original/khNVygolU0TxLIDWff5tQlAhZ23.jpg"))),
+                            imageUrl))),
               ),
             ],
           ),

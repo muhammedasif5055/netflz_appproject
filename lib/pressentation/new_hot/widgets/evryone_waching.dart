@@ -23,21 +23,23 @@ class EveryoneWachingwig extends StatelessWidget {
       children: [
         khight,
         Text(
-          "Aadu",
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          movieName,
+          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
         ),
         khight,
         Text(
-            "Triumph in a local Tug-of-war tourney gifted Shaji Pappan and his gang, a cute but naughty little goat 'Pinky'. Their attempts to dump the goat, unknowingly, interrupts few groups of smugglers, who are in race for the 'Neelakodiveli.",
-            style: TextStyle(color: Colors.grey)),
+            description,
+            maxLines: 4,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(color: Colors.grey)),
         khight20,
         VideoWigets(
-            bimage:
-                "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/3DmJz4dQbuInK9svJnSzOG7fM9e.jpg"),
+            bimage: posterpath 
+            ),
         khight,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [
+          children: const [
             Addinfowigets(
                 icon: Icons.send_outlined,
                 title: "Share",

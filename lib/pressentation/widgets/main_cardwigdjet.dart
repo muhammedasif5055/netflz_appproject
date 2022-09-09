@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MainCardWiget extends StatelessWidget {
+  final String imageUrl;
   const MainCardWiget({
     Key? key,
+     required this.imageUrl,
+    
   }) : super(key: key);
 
   @override
@@ -16,8 +19,7 @@ class MainCardWiget extends StatelessWidget {
             borderRadius: BorderRadius.circular(6),
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://www.themoviedb.org/t/p/original/ubQeUNRlc8o3nsvB1JvCwICAMFY.jpg"))),
+                image: NetworkImage(imageUrl))),
       ),
     );
   }

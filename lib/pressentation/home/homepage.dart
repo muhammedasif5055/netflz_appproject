@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflz_appproject/core/colors/colors.dart';
 import 'package:netflz_appproject/core/colors/constance.dart';
 import 'package:netflz_appproject/pressentation/home/widget/addinfo_btnwiget.dart';
@@ -9,7 +10,7 @@ import 'package:netflz_appproject/pressentation/home/widget/number_cardwiget.dar
 import 'package:netflz_appproject/pressentation/home/widget/numberwiget.dart';
 import 'package:netflz_appproject/pressentation/widgets/main_cardwigdjet.dart';
 import 'package:netflz_appproject/pressentation/widgets/main_title.dart';
-
+import '../../application/home/home_bloc.dart';
 import '../widgets/title_cardwiget.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -19,6 +20,9 @@ class ScreenHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<HomeBloc>(context).add(const GetHomeScreenData());
+    });
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: scrollNotifier,
@@ -35,19 +39,87 @@ class ScreenHomePage extends StatelessWidget {
             },
             child: Stack(
               children: [
-                ListView(
-                  children: const [
-                    Backgroundcardwiger(),
-                    Titlecard_wiget(title: 'Released in the past year'),
-                    khight,
-                    Titlecard_wiget(title: 'Trending Now'),
-                    khight,
-                    NumberWigectcard(),
-                    khight,
-                    Titlecard_wiget(title: 'Tense Dramas'),
-                    khight,
-                    Titlecard_wiget(title: 'South Indian Cinemas'),
-                  ],
+                BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    if (state.isLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                        ),
+                      );
+                    } else if (state.hasError) {
+                      return const Center(
+                        child: Text(
+                          'Error while geting Data',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      );
+                    }
+                    //pastyear
+                    final _releasesPastYear = state.pastYearMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+
+                    //trending
+                    final _trending = state.trndingMovesList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+
+                    //tensdrama
+                    final _tensDrama = state.tenseMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+
+                    //southindianmoves
+                    final _southIndianmoves =
+                        state.southIndianMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+                    final _topTvShows =state.trendingTvList.map((t){
+                      return '$imageAppendUrl${t.posterPath}';
+                    },).toList();
+                    final _bgposter =state.trendingTvList.map((t){
+                      return '$imageAppendUrl${t.posterPath}';
+                    },).toList();
+                    _topTvShows.shuffle();
+                    _southIndianmoves.shuffle();
+                    _tensDrama.shuffle();
+
+                    return ListView(
+                      children: [
+                         if (_bgposter.length >= 1)
+                        Backgroundcardwiger(imagUrl:_bgposter[1],),
+                        if (_releasesPastYear.length >= 10)
+                          Titlecard_wiget(
+                            title: 'Released in the past year',
+                            posterList: _releasesPastYear.sublist(0, 10),
+                          ),
+                        khight,
+                         if (_trending.length >= 10)
+                        Titlecard_wiget(
+                          title: 'Trending Now',
+                          posterList: _trending.sublist(0, 10),
+                        ),
+                        khight,
+                         if (_topTvShows.length >= 10)
+                        NumberWigectcard(
+                          posterList: _topTvShows,
+                        ),
+                        khight,
+                         if (_tensDrama.length >= 10)
+                        Titlecard_wiget(
+                          title: 'Tense Dramas',
+                          posterList: _tensDrama.sublist(0, 10),
+                        ),
+                        khight,
+                         if (_southIndianmoves.length >= 10)
+                        Titlecard_wiget(
+                          title: 'South Indian Cinemas',
+                          posterList: _southIndianmoves.sublist(0, 10),
+                        ),
+                      ],
+                    );
+                  },
                 ),
                 scrollNotifier.value == true
                     ? AnimatedContainer(
